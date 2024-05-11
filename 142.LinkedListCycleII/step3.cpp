@@ -17,13 +17,13 @@ public:
         ListNode* node = head;
 
         while (node) {
-            if(nodeSet.find(node) != nodeSet.end()) {
+            if(nodeSet.contains(node) == true) {
                 return node;
             }
             nodeSet.insert(node);
             node = node->next;
         }
 
-        return node;
+        return nullptr;
     }
 };

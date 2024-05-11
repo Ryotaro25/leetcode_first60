@@ -14,4 +14,4 @@ submit1回目でアクセプトされたので他にどのような解法があ�
 141LinkedListCycleと同じく解法はフロイドサイクルアルゴリズムがほとんど。
 
 mapやunordered_mapを使っている解法もありましたが、
-この問題ではvalueを使う必要性がなかったためunsorted_setでいいと思いました。
+この問題ではvalueを使う必要性がなかったためunordered_setでいいと思いました。
