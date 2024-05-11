@@ -17,7 +17,7 @@ public:
         ListNode* node = head;
 
         while (node) {
-            if(nodeSet.contains(node) == true) {
+            if(nodeSet.contains(node)) {
                 return node;
             }
             nodeSet.insert(node);
