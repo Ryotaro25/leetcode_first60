@@ -15,7 +15,7 @@ public:
             return head;
         }
         ListNode* node = head;
-        while (node->next != nullptr) {
+        while (node->next) {
             if (node->val == node->next->val) {
                 node->next = node->next->next;
             } else {

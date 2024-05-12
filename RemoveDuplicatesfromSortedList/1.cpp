@@ -12,20 +12,20 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-      if (head == NULL) {
-        return head;
-      }
-        set<int> nodeSet;
+        if (head == NULL) {
+          return head;
+        }
+        set<int> vals;
         ListNode* node = head->next;
         ListNode* prev = head;
-        nodeSet.insert(head->val);
-        
+        vals.insert(head->val);
+
         while (node != nullptr) {
-          if (nodeSet.contains(node->val)) {
+          if (vals.contains(node->val)) {
             prev->next = node->next;
             node = node->next;
           } else {
-            nodeSet.insert(node->val);
+            vals.insert(node->val);
             prev = node;
             node = node->next;
           }
