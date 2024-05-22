@@ -15,7 +15,7 @@ public:
     ListNode* deleteDuplicates(ListNode* head) {
         std::map<int, int> valsCnt;
         ListNode* node = head;
-        while(node) {
+        while (node) {
           if (valsCnt[node->val] == 0) {
             valsCnt[node->val] = 1;
           } else {

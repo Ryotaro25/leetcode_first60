@@ -21,6 +21,8 @@ forループの部分は丸覚えしていたので、Range-based for loopにつ
 mapからpairにキャスト？されるので->は使えなくなる。
 https://en.cppreference.com/w/cpp/language/range-for
 
+## ステップ4
+指摘の受けた箇所ように作成
 
 # 他にどのような方法があるのか調べた
 ・現在と1つ前の状態をもつポインタを用意する方法
