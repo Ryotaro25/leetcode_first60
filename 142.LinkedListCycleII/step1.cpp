@@ -7,20 +7,19 @@
  * };
  */
 
-#include <map>
+#include <unordered_set>
 class Solution {
 public:
-    bool hasCycle(ListNode *head) {
-        std::map<ListNode*, bool> nodeMap;
+    ListNode *detectCycle(ListNode *head) {
+        std::unordered_set<ListNode*> nodeSet;
         ListNode* node = head;
-
-        while (node) {
-          if (nodeMap[node]) {
-            return true;
+        while(node) {
+          if (nodeSet.find(node) != nodeSet.end()) {
+            return node;
           }
-          nodeMap[node] = true;
+          nodeSet.insert(node);
           node = node->next;
         }
-        return false;
+        return node;
     }
 };
