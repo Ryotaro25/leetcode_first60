@@ -12,7 +12,7 @@ class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* list1, ListNode* list2) {
         if (!list1 && !list2) {
-          return NULL;
+          return nullptr;
         }
         int sum = 0;
         if (list1) {
