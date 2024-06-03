@@ -42,3 +42,31 @@ https://github.com/shining-ai/leetcode/pull/9/files
 計算量はO(nlogn),O(n),O(n^2)Pivotがランダムであるため
 
 https://github.com/cheeseNA/leetcode/pull/13/files#diff-2c02aa0b895304ea469c858cfd15bbdf92b9bff38c9b6d77d45d344c424bca00
+
+##　各実装の比較
+計測値はleetcodeを使用
+**priority_queue(step5.cpp)**
+時間計算量:O(n)
+空間計算量:O(n)
+計測値:15ms
+
+**愚直な方法(step6.cpp)**
+時間計算量:O(nlogn)
+空間計算量:O(n)
+計測値:15ms
+
+**bucket_sort(step7.cpp)**
+時間計算量:O(n)
+空間計算量:O(n)
+計測値:17ms
+
+**min_heap(step8.cpp)**
+時間計算量:O(nlogn) 参照：https://qiita.com/gteu/items/f40bdee41dd6a272a47e
+空間計算量:O(n)
+計測値:8ms
+時間計算量は他よりかかりそうなのに計測値は早い？なぜだろう
+
+**quickselect(step9.cpp)**
+時間計算量:O(nlogn),O(n),O(n^2)Pivotがランダムであるため
+空間計算量:O(n)
+計測値:8ms
