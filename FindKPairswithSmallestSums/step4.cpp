@@ -43,13 +43,13 @@ public:
             smallest_pairs.push_back({nums1[i], nums2[j]});
 
             // sums_and_pairsの中身はsumの小さいもの順序
-            if (i + 1 < nums1.size() && !visited.count({i+1, j})) {
-                sums_and_pairs.push(candidates{nums1[i+1]+nums2[j], i+1, j});
-                visited.insert(position{i+1, j});
+            if (i + 1 < nums1.size() && !visited.count({i + 1, j})) {
+                sums_and_pairs.push(candidates{nums1[i + 1]+nums2[j], i + 1, j});
+                visited.insert(position{i + 1, j});
             }
             if (j + 1 < nums2.size() && !visited.count({i, j+1})) {
-                sums_and_pairs.push(candidates{nums1[i]+nums2[j+1], i, j+1});
-                visited.insert(position{i, j+1});
+                sums_and_pairs.push(candidates{nums1[i]+nums2[j + 1], i, j + 1});
+                visited.insert(position{i, j + 1});
             }
         }
                 
