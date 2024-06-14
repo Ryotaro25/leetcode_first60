@@ -6,7 +6,9 @@ O(n^2)
 空間
 O(1)
 
-問題のジャンルがhash mapなのでmapを使った解法を考える
+~~問題のジャンルがhash mapなのでmapを使った解法を考える~~
+liquo-riceさんから指摘があったようにMapは平衡二分探索木、unordered_mapがhash map
+
 <数値、インデックス>でmapを作りこれをループで回して
 targetから数値を引いた数をもつindexを探せばO(1)ですみそう
 
@@ -14,11 +16,15 @@ Keyが重複する場合の回答の見つけ方が分からなかったので�
 https://leetcode.com/problems/two-sum/
 ループの最後に挿入することで
 重複を上書きする前に、keyとvalueを見つけることができる
-時間
-O(n)
+~~時間~~
+~~O(n)~~
 空間
 O(n)
 
+時間
+mapのcontainsを使う場合(log n)なので合計O(n log n)
+unordered_mapのcontainsを使う場合はO(n)なのでO(n^2)
+https://en.cppreference.com/w/cpp/container/unordered_map/contains
 ## ステップ2
 ・解なしの場合も考慮する、今回だと{}をreturnすることで差別化
 https://github.com/colorbox/leetcode/pull/3#discussion_r1519068995
