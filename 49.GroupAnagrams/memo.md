@@ -31,3 +31,25 @@ O(n * m)
 
 空間計算量
 O(n)
+
+## 追加
+違いをよくわかっていないのでこちら参考
+https://en.cppreference.com/w/cpp/container/set
+https://en.cppreference.com/w/cpp/container/map
+https://en.cppreference.com/w/cpp/container/unordered_set
+https://en.cppreference.com/w/cpp/container/unordered_map
+
+vectorにはmoveを渡すことができる
+https://en.cppreference.com/w/cpp/container/vector/push_back
+
+move
+https://en.cppreference.com/w/cpp/utility/move
+
+autoについて
+https://discord.com/channels/1084280443945353267/1183683738635346001/1187823638049718425
+
+string + の効率について
+https://stackoverflow.com/questions/611263/efficient-string-concatenation-in-c
+
+the rope data structure
+https://www.geeksforgeeks.org/ropes-data-structure-fast-string-concatenation/
