@@ -10,7 +10,7 @@ private:
 
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        unordered_map<string, vector<string>> sorted_to_group;
+        map<string, vector<string>> sorted_to_group;
         for (auto str : strs) {
             vector<int> counts = count_alphabet(str);
             string key;
