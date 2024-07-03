@@ -18,15 +18,19 @@ public:
       string key;
 
       // chatGPTにて確認
+      // https://ameblo.jp/nana-2007-july/entry-10098557843.html
+      // https://cplusplus.com/reference/sstream/ostringstream/
+      ostringstream oss;
       for (int count : counts) {
-        key += '#' + to_string(count);
+        oss << '#' << count;
       }
+      key = oss.str();
       sorted_to_group[key].push_back(str);
     }
 
     vector<vector<string>> group_anagrams;
-    for (auto [key, word_group] : sorted_to_group) {
-      group_anagrams.push_back(word_group);
+    for (auto& [key, word_group] : sorted_to_group) {
+      group_anagrams.push_back(move(word_group));
     }
 
     return group_anagrams;
