@@ -11,6 +11,39 @@ struct node {
 template <typename K, typename V>
 class red_black_tree {
 public:
+  red_black_tree() {
+    nil = new node<K, V>;
+    nil->color = "BLACK"; // Sentinel node
+    root = nil;
+  }
+
+  V& operator[](const K& key) {
+        node<K, V>* result = tree_search(root, key); // キーを検索
+        if (result == nil) {
+            // キーが存在しない場合は新たに挿入
+            node<K, V>* new_node = new node<K, V>;
+            new_node->key = key;
+            new_node->value = V(); // デフォルト値で初期化（仮定）
+
+            rb_insert(root, new_node);
+            return new_node->value;
+        } else {
+            // キーが存在する場合はその値を返す
+            return result->value;
+        }
+    }
+
+  node<K, V>* tree_search(node<K, V>* x, const K& key) {
+    if (x == nil || key == x->key) {
+      return x;
+    }
+    if (key < x->key) {
+      return tree_search(x->left, key);
+    } else {
+      return tree_search(x->right, key);
+    }
+  }
+
   node<K, V>tree_minimum(node<K, V>* x) {
     while (x->left != nil) {
       x = x->left;
@@ -82,9 +115,64 @@ public:
     }
   }
 
+  class iterator {
+    private:
+        node<K, V>* current;
+        std::stack<node<K, V>*> stack;
+
+    public:
+        iterator(node<K, V>* root) {
+            initializeStack(root);
+        }
+
+        iterator& operator++() {
+            if (stack.empty()) {
+                current = nullptr;
+                return *this;
+            }
+
+            current = stack.top();
+            stack.pop();
+            initializeStack(current->right);
+            return *this;
+        }
+
+        bool operator!=(const iterator& other) const {
+            return current != other.current;
+        }
+
+        pair<const K, V> operator*() const {
+          return {current->key, current->value};
+        }
+
+    private:
+      void initializeStack(node<K, V>* start) {
+          while (start != nullptr) {
+              stack.push(start);
+              start = start->left;
+          }
+      }
+    };
+
+    iterator begin() {
+        return iterator(tree_minimum_node(root));
+    }
+
+    // endイテレータはnullptrを返す
+    iterator end() {
+        return iterator(nil);
+    }
+
 private:
   node<K, V>* root;
   node<K, V>* nil;
+
+  node<K, V>* tree_minimum_node(node<K, V>* x) {
+        while (x->left != nil) {
+            x = x->left;
+        }
+        return x;
+    }
 
   void left_rotate(node<K, V>* t, node<K, V>* x) {
     node<K, V>* y = x->right;
@@ -98,7 +186,7 @@ private:
 
     // xが根であれば、yは根になる
     if (x->parent == nil) {
-      t->root = y;
+      root = y;
     // xが左の子であればyは左の子になる
     } else if (x == x->parent->left) {
       x->parent->left = y;
@@ -122,7 +210,7 @@ private:
 
     // xが根であれば、yは根になる
     if (x->parent == nil) {
-        t->root = y;
+        root = y;
     // xが左の子であればyは左の子になる
     } else if (x == x->parent->left) {
         x->parent->left = y;
@@ -151,11 +239,11 @@ private:
         } else {
           // zの叔父yが黒で、zが右の子供である場合
           if (z == z->parent->right) {
-            z == z->parent;
+            z = z->parent;
             left_rotate(t, z);
           }
           // zの叔父yが黒で、zが左の子供である場合
-          z->parent->color == "BLACK";
+          z->parent->color = "BLACK";
           z->parent->parent->color = "RED";
           right_rotate(t, z->parent->parent);
         }
@@ -269,18 +357,17 @@ private:
 class Solution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        map<string, vector<string>> sorted_to_group;
+        red_black_tree<string, vector<string>> sorted_to_group;
         for (auto& str : strs) {
             string anagram = str;
             sort(anagram.begin(), anagram.end());
-            sorted_to_group[anagram].push_back(std::move(str));
+            sorted_to_group[anagram].push_back(str);
         }
 
         vector<vector<string>> group_anagrams;
-        for (auto& [key, word_group] : sorted_to_group) {
-            group_anagrams.push_back(std::move(word_group));
+        for (const auto& [key, word_group] : sorted_to_group) {
+          group_anagrams.push_back(move(word_group));
         }
-
         return group_anagrams;
     }
 };
