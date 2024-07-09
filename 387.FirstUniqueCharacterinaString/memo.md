@@ -35,3 +35,9 @@ vectorで実装してみる。
 この場合
 時間はO(n)
 空間はO(1)
+
+## step4
+参照について
+https://en.cppreference.com/w/cpp/language/reference
+参照のQA
+https://isocpp.org/wiki/faq/references
