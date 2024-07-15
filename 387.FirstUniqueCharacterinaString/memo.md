@@ -27,6 +27,11 @@ https://github.com/hayashi-ay/leetcode/pull/28/commits/77d8e91c2c36a4aede152b4ce
 for char in s:
 https://github.com/sakupan102/arai60-practice/pull/16/commits/9bac37a73619050a67fdad2c29576362bc393b6c
 
+liked hash list参考
+https://github.com/nittoco/leetcode/pull/20/commits/5fa100230a5a7de7500a8556386676af623fa536?short_path=c637421#diff-c6374213bbbe17c2850ccd0bfb422c1f5bf40576b93320647cbfd9e9e3724c74
+
+https://discord.com/channels/1084280443945353267/1201211204547383386/1211052303134629888
+
 ## Discordなど
 Pythonだとアルファベットに対するdictやlistを用意してカウントする方法が存在する
 https://discord.com/channels/1084280443945353267/1233603535862628432/1237973103670198292
