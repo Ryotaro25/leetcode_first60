@@ -10,7 +10,7 @@ class UnionFind {
       }
     }
 
-    // 自分自身が代表なのか、再起的に代表を見つける
+    // 自分自身が代表なのか、再帰的に代表を見つける
     int find(int x) {
       while (x != root[x]) {
         x = root[x];
