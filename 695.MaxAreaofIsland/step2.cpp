@@ -19,6 +19,8 @@ public:
     grid[row][column] = Visited;
     area++;
 
+    measure_island(grid, row - 1, column, area);
+    measure_island(grid, row, column + 1, area);
     measure_island(grid, row + 1, column, area);
     measure_island(grid, row, column - 1, area);
     return area;
