@@ -17,6 +17,7 @@ https://github.com/TORUS0818/leetcode/pull/20
 島の大きさなどを管理する必要があり大変だと感じた
 
 unionは予約後かつ前回指摘受けたように名詞なのでuniteにしてみた
+=> Unionの方が一般的
 
 ## 他の方の回答など
 https://github.com/Yoshiki-Iwasa/Arai60/pull/17
