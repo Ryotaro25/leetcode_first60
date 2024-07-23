@@ -4,10 +4,12 @@ class UnionFind {
     vector<int> rank;
 
     int Find(int x) {
-      while (x != parent[x]) {
-        x = parent[x];
+      if (x == parent[x]) {
+        return x;
+      } else {
+        parent[x] = Find(parent[x]);
+        return parent[x];
       }
-      return x;
     }
 
   public:
