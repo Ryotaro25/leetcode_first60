@@ -17,7 +17,7 @@ https://github.com/TORUS0818/leetcode/pull/24/commits/160fc18153fd5c9178d80bdd44
 10^5であることを気を付ける
 許容されるデータ量について理解していないので調べてみた
 =>スタックメモリが確保されオーバーフローを考慮する必要がある
-  スタックのデフォルトサイズは8mg
+  スタックのデフォルトサイズは8mb
 
 参考
 https://stackoverflow.com/questions/23191320/memory-allocation-for-recursive-functions
