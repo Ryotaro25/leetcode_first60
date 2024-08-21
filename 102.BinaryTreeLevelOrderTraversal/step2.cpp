@@ -14,21 +14,21 @@ public:
   vector<vector<int>> levelOrder(TreeNode* root) {
     vector<vector<int>> level_to_values = {};
 
-    queue<TreeNode*> smae_level_nodes;
-    smae_level_nodes.emplace(root);
-    while (!smae_level_nodes.empty()) {
-      int nodes_num = smae_level_nodes.size();
+    queue<TreeNode*> same_level_nodes;
+    same_level_nodes.emplace(root);
+    while (!same_level_nodes.empty()) {
+      int nodes_num = same_level_nodes.size();
       vector<int> values = {};
       for (int i = 0; i < nodes_num; i++) {
-        auto node = smae_level_nodes.front();
-        smae_level_nodes.pop();
+        auto node = same_level_nodes.front();
+        same_level_nodes.pop();
 
         if (!node) {
           continue;
         }
         values.emplace_back(node->val);
-        smae_level_nodes.emplace(node->left);
-        smae_level_nodes.emplace(node->right);
+        same_level_nodes.emplace(node->left);
+        same_level_nodes.emplace(node->right);
       }
       
       if (!values.empty()) {
