@@ -23,7 +23,7 @@ public:
       vector<TreeNode*> next_level_nodes = {};
 
       for (const auto node : current_level_nodes) {
-        values.emplace_back(std::move(node->val));
+        values.emplace_back(node->val);
         if (node->left) {
           next_level_nodes.emplace_back(node->left);
         }

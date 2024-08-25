@@ -29,11 +29,7 @@ public:
   }
 
   // move コンストラクター
-  MyVector(MyVector&& r) : arr(new T[r.capacity]), capacity(r.capacity), current(r.current) {
-    for (int i = 0; i < current; i++) {
-        arr[i] = r.arr[i];
-    }
-
+  MyVector(MyVector&& r) : arr(r.capacity), capacity(r.capacity), current(r.current) {
     // 元の右辺値を無効化
     r.arr = nullptr;
     r.capacity = 0;
@@ -79,10 +75,12 @@ public:
   }
 
   void insert(T data, int index) {
-    if (index == capacity) {
-      push_back(data);
-    } else {
-      arr[index] = data;
+    // arr[-3] などは無効
+    if (index < 0 || index >= current) {
+      throw std::out_of_range("Index out of range");
+    }
+
+    arr[index] = data;
     }
   }
 
