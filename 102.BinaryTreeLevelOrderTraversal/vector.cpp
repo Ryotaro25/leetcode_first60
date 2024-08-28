@@ -80,24 +80,36 @@ public:
       throw std::out_of_range("Index out of range");
     }
 
-    arr[index] = data;
+    if (current >= capacity) {
+      resize();
     }
+
+    for (int i = current; i > index; --i) {
+      arr[i] = arr[i - 1];
+    }
+
+    arr[index] = data;
+    current++;
   }
 
   void push_back(T data) {
     if (current == capacity) {
-      T* temp = new T[2 * capacity];
-      for (int i = 0; i < capacity; i++) {
-        temp[i] = arr[i];
-      }
-
-      delete[] arr;
-      capacity *= 2;
-      arr = temp;
+      resize();
     }
 
     arr[current] = data;
     current++;
+  }
+
+  void resize() {
+    T* temp = new T[2 * capacity];
+    for (int i = 0; i < capacity; i++) {
+      temp[i] = arr[i];
+    }
+
+    delete[] arr;
+    capacity *= 2;
+    arr = temp;
   }
 
 private:
