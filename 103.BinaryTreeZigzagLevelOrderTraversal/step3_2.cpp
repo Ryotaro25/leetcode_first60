@@ -37,7 +37,7 @@ public:
         reverse(values.begin(), values.end());
       }
       level++;
-      current_nodes = next_level_nodes;
+      current_nodes = std::move(next_level_nodes);
       level_to_values.emplace_back(std::move(values));
     }
 
