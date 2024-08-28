@@ -27,10 +27,10 @@ public:
         values.emplace_back(node->val);
 
         if (node->left) {
-          next_level_nodes.emplace_back(std::move(node->left));
+          next_level_nodes.emplace_back(node->left);
         }
         if (node->right) {
-          next_level_nodes.emplace_back(std::move(node->right));
+          next_level_nodes.emplace_back(node->right);
         }
       }
       if (level % 2 != 0) {
