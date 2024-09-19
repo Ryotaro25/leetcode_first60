@@ -1,29 +1,27 @@
-# fast slow2つのポインターを用いた解法
-## ステップ1
-問題文を一度読んだタイミングでは、141LinkedListCycleとの違いがわかりませんでした。
-~~outputを見てnodeを指し示すindex番号を返却すればいいと理解増したた。~~
-indexではなく、headが持つポインタを持っている。
-この問題では141LinkedListCycleとは違い、サイクルが始まっているindexに対するポンタを返却する。
+# points
 
-サイクルを見つけたタイミングでのindexを返却すれば良さそうなので、
-順番を考慮しなくていいsetではなくunsorted_setを採用しました。
+Different from the 142.LinkedListCycleI, it requres to return index, which is used inside of the node. 
+There are mainly two choices, includes memorize all nodes into set or map until you find the loop or the end of the node.
+The other way is using floyd algorism. It is a bit advanced but it is important to write a code by your hand to hold choices. 
 
-141LinkedListCycleを解いている際にmapとの比較記事を読んで
-今回もvalueを使わないで良さそうなのでunsorted_setを使うことにしました。
+# Note that it is common to distinguish between verification using testcase and mathmatical proof. 
 
-## ステップ2
-submit1回目でアクセプトされたので他にどのような解法があるのか見ました。
-141LinkedListCycleと同じく解法はフロイドサイクルアルゴリズムがほとんど。
+For example,
+Let the distance from the entrance of cycle be X
+Let the distance from the entrance of cycle to the junction point to be Y
+Let the distance from the junction point to the entrance of cycle be Z
 
-mapやunordered_mapを使っている解法もありましたが、
-この問題ではvalueを使う必要性がなかったためunordered_setでいいと思いました。
+the distance traveled by slow node will be X + Y
+the distance traveled by fast node will be X + Y + (Y + Z) * K where K is the number of the cycle of fast node: k >= 1
 
-## ステップ4
-fastとslowの2つのポインタを用いた方法を試しました。
-141LinkedListCycleと同じ解放でいけると思ったのですが、
-サイクルの起点の見つけ方が異なっていた。
+(X + Y) * 2 = X + Y + (Y + Z) * k
+therefore X = Z + (Y + Z) * (K - 1)
+So, after one of each node restart from the top, nodes will meet at the entrance of the cycle.
 
-サイクルが見つかったタイミングでslow側をリセットして、
-もう一度探さないといけない理由は直感的に理解できなかった。
+# other tips
+Thinl as possible as simple code so that reader can grasp easily
+it is better nodeSet.contains(node) rather that nodeSet.find(node) != nodeSet.end()
 
-setを使った方が、馴染みのあるfindであったりbooleanで制御できるので分かりやすかった。
+Don't attache the irrevant file
+
+Use unified code, don't descrive various code which have the same meaning.
