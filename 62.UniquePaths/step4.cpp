@@ -1,7 +1,7 @@
 class Solution {
 public:
   int uniquePaths(int m, int n) {
-    // m と n を比較して、n の方が小さい場合、m と n を交換
+    // m と n を比較して、n の方が大きい場合、m と n を交換
     if (m < n) {
       swap(m, n);
     }
