@@ -27,3 +27,16 @@ step4.cppに実装(写経)
 
 ## Discordなど
 
+## 多倍長整数クラス
+64bitより長い数値を扱う計算全般を広義の多倍長(multiple precision)計算
+
+https://na-inet.jp/weblog2/2018/03/22/%E3%81%9D%E3%82%82%E3%81%9D%E3%82%82%E3%80%8C%E5%A4%9A%E5%80%8D%E9%95%B7%E3%80%8D%E3%81%A3%E3%81%A6%E3%81%A9%E3%81%86%E3%81%84%E3%81%86%E6%84%8F%E5%91%B3%EF%BC%9F/
+
+https://zenn.dev/herumi/articles/bitint-01-cpp
+
+Boost
+https://ja.wikipedia.org/wiki/Boost_C%2B%2B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA
+cpp_int.hpp
+https://github.com/boostorg/multiprecision/blob/develop/include/boost/multiprecision/cpp_int.hpp
+
+実装は難しかったので一周してから戻ってくる
