@@ -1,5 +1,7 @@
 ## ステップ1
-愚直に総当たりで解く方法を思いついたがLTE
+愚直に総当たりで解く方法を思いついたがTLE
+https://ja.wikipedia.org/wiki/Long_Term_Evolution
+
 brue_force.cppに実装
 
 ループを一つにするために最小の数値を記録し、
