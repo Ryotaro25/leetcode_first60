@@ -8,7 +8,7 @@ public:
   }
 
 private:
-  bool CheckWordBreak(string word, const set<string>& word_dict, map<string, bool>& word_to_validity) {
+  bool CheckWordBreak(const string& word, const set<string>& word_dict, map<string, bool>& word_to_validity) {
     if (word_dict.contains(word)) {
       return true;
     }

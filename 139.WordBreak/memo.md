@@ -51,3 +51,9 @@ https://en.wikipedia.org/wiki/Trie
 Trieの練習問題は下記(どこかでやってみる)
 https://leetcode.com/problems/implement-trie-prefix-tree/editorial/
 
+>vector は bool 型に対して特殊化されている。
+https://cpprefjp.github.io/reference/vector/vector.html
+>配列のように連続して格納されているとは限らない
+
+これが遅くなる原因か
+https://zenn.dev/stmo/articles/d622a40b31fbee

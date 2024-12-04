@@ -16,7 +16,7 @@ private:
       return true;
     }
 
-    for (const auto word : word_dict) {
+    for (const auto& word : word_dict) {
       // targetがwordから始まっているかどうかをチェック
       if (target.starts_with(word)) {
         string_view remaining = target.substr(word.size());
