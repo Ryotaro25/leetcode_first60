@@ -1,5 +1,7 @@
 ## ステップ1
-制約にO(log n)とあったので思いついたのは、バイナリーサーチツリーを用いた
+制約にO(log n)とあったので思いついたのは、~~バイナリーサーチツリー~~を用いた
+※指摘があったため訂正(木構造は使っていない)
+
 探索した結果端に辿り着いた場合の処理に時間がかかった
 acceptまで34分
 制約がなければforループO(n)で実装していた
@@ -61,3 +63,40 @@ https://github.com/sakupan102/arai60-practice/pull/42
 
 ## Discordなど
 
+middleについれleet codeの解説より
+>If left + right is greater than the maximum int value 2^31 −1, it overflows to a negative value. In Java, it would trigger an exception of ArrayIndexOutOfBoundsException, and in C++ it causes an illegal write, which leads to memory corruption and unpredictable results.
+
+## step4.cpp
+### 閉区間 [start, end]
+* 探索空間、初期値の設定
+start = 0、end = nums.size() - 1
+
+* ループ終了条件
+start == end
+
+* 更新操作
+nums[middle] < targetがtrueの場合[middle + 1, end]
+nums[middle] < targetがfalseの場合[start, middle]
+
+## 半開区間 [start, end) or (start, end]
+[start, end)でstep5.cppに実装
+* 探索空間、初期値の設定
+start = 0, end = nums.size()
+
+* ループ終了条件
+start >= end
+
+* 更新操作
+nums[middle] < targetがtrueの場合[middle + 1, end]
+nums[middle] < targetがfalseの場合[start, middle]
+形で覚えるのではなく、下記の考え方を理解する
+https://github.com/Yoshiki-Iwasa/Arai60/pull/35/commits/f279dd98a68111954a02344b20b47512ebffafc4#r1699552857
+
+
+>二分探索を、 [false, false, false, ..., false, true, true, ture, ..., true] と並んだ配列があったとき、 false と true の境界の位置を求める問題、または一番左の true の位置を求める問題と捉えているか？
+>位置を求めるにあたり、答えが含まれる範囲を狭めていく問題と捉えているか？
+>範囲を考えるにあたり、閉区間・開区間・半開区間の違いを理解できているか？
+>用いた区間の種類に対し、適切な初期値を、理由を理解したうえで、設定できるか？
+>用いた区間の種類に対し、適切なループ不変条件を、理由を理解したうえで、設定できるか？
+>用いた区間の種類に対し、範囲を狭めるためのロジックを、理由を理解したうえで、適切に記述できるか？
+https://discord.com/channels/1084280443945353267/1196498607977799853/1269532028819476562
