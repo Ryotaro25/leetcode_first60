@@ -15,7 +15,9 @@ startとendの真ん中をmiddleとして、ループの普遍条件は
 ・start <= middle < end
 
 5.探索ロジックの設計
-nums[mid] < targetがtrueなら、startをmiddle + 1に更新
+nums[middle] < targetがtrueであれば、middleより左側にtargetは存在しないので
+startをmiddle + 1に更新
+
 nums[mid] >= target の場合、 mid の位置に対象がある場合があるため、
 区間を狭めつつ mid を区間内に含めるため、end = mid とする
 
