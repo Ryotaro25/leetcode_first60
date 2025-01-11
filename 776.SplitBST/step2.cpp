@@ -22,14 +22,14 @@ public:
 
     while (node) {
       if (node->val > target) {
-        // 現在のnodeの値の方が小さいので左側に紐づける
+        // 現在のnodeの値の方が小さいのでnodeを左側に紐づける
         larger->left = node;
         larger = larger->left;
-        // 現在のnodeの値の方が大きいので左側に探索を進める
+        // 小さい数字が含まれているので左側に探索を進める
         node = node->left;
         larger->left = nullptr;
       }  else {
-        // 現在のnodeの値の方が大きいので右側に紐づける
+        // 現在のnodeの値の方が大きいのでnodeを右側に紐づける
         smaller->right = node;
         smaller = smaller->right;
         // 大きい数字が含まれているので右側に探索を進める
