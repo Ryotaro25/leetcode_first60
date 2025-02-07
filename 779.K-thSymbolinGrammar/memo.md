@@ -44,7 +44,8 @@ c++のpopcount
 https://cpprefjp.github.io/reference/bit/popcount.html
 
 >n == 1 より k == 1 の方が速い
-nを使うとO(n)となってkだと常に半分だけ探索すのでO(log n)になるからか。
+~~nを使うとO(n)となってkだと常に半分だけ探索すのでO(log n)になるからか。~~
+常にnの数だけ、行を作る必要があるので計算量としては変わらない。
 https://github.com/goto-untrapped/Arai60/pull/26/commits/becc7ca1a17b5e53a721fd051cb8443d614afd9b
 https://github.com/Mike0121/LeetCode/pull/18/commits/65a2b703a054a7b4c204211079a1c053d19c37cf
 
