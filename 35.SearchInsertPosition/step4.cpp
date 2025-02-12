@@ -1,25 +1,28 @@
 /*
 1.問題のモデル化
-ターゲットより大きいのか、以下なのか2つ以上の相補的な状態に分類することができるのでfalseとtrueの問題とみなす。
-記問題を解くにあたり、対象の位置を含む区間をstartからendとして定義する。
+numsの各要素をターゲット未満かターゲット以上であるかの2種類に分類する
+ターゲット未満であればfalse、ターゲット以上であればtrueと見なす。
+
+例えばnums = [1,3,5,6], target = 5　を用いると
+nums = [false, false, true, true]と表すことができる
+この中で一番左の true の位置を探す。
 
 2.探索空間の定義
 今回は閉区間として探索を行う。
 
 3.初期値の設定
-startを0、endを配列の最後の要素nums.size() - 1として探索する。
-配列の全要素を探索するイメージ。
+startを0、endを配列の最後の要素nums.size() - 1とする。
 
 4.ループ不変条件の設定
-startとendの真ん中をmiddleとして、ループの普遍条件は
-・start <= middle < end
+startとendの真ん中をmiddleとして、ループの不変条件は
+start < end、start <= middle、middle <= end 
 
 5.探索ロジックの設計
-nums[middle] < targetがtrueであれば、middleより左側にtargetは存在しないので
-startをmiddle + 1に更新
+nums[middle] < target の場合、middleおよびその左側にtargetは存在しないので
+startをmiddle + 1に更新する。
 
 nums[mid] >= target の場合、 mid の位置に対象がある場合があるため、
-区間を狭めつつ mid を区間内に含めるため、end = mid とする
+区間を狭めつつ mid を区間内に含めるため、end = mid とする。
 
 6.検証
 ・targetがnumsのいずれよりも小さい場合

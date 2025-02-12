@@ -12,8 +12,7 @@ startを0、endをnums.size()として探索する。
 
 4.ループ不変条件の設定
 startとendの真ん中をmiddleとして、ループの普遍条件は
-・start <= middle < end
-・start <= target < end
+ start < end、start <= middle、middle <= end
 
 5.探索ロジックの設計
 nums[middle] < targetがtrueであれば、middleより左側にtargetは存在しないので
