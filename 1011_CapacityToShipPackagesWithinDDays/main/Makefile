@@ -1,7 +1,6 @@
 # コンパイラの設定
 CXX = g++
 # コンパイルオプション
-CXXFLAGS = -std=c++17 -Wall -Wextra -O2
 CXXFLAGS = -std=c++17 -Wall -Wextra -O2 -I/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/
 
 # 実行ファイル名

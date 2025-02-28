@@ -2,16 +2,13 @@
 #define CAPACITYTOSHIPPACKAGE_MAIN_STEP3_H_
 
 #include <vector>
-#include <numeric>
-#include <iostream>
-using namespace std;
 
 class Solution {
   public:
-    int shipWithinDays(vector<int>& weights, int days);
+    int shipWithinDays(std::vector<int>& weights, int days);
 
   private:
-    bool IsLoadable(const vector<int>& weights, int capacity, int allowable_days);
+    bool IsLoadable(const std::vector<int>& weights, int capacity, int allowable_days);
   };
 
 #endif

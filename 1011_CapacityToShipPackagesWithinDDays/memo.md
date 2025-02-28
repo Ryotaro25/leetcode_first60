@@ -13,13 +13,16 @@ capacity_of_the_ship = [false, true, true, true]と表すことができる。
 この中で一番左のtrueの位置を探す。
 
 2.探索空間の定義
-半開区間として探索を行う。
+~~半開区間として探索を行う。~~
+leftを探索範囲の最小index、rightを探索範囲の最大indexとして
+閉区間として考える
 
 3.初期値の設定
-leftをmax_weight、rightを配列の最後の要素sum_weightとする。
+leftをmax_weight、rightをsum_weightとする。
 
 4.ループ不変条件の設定
-left < right、[left, right)に解が含まれている。
+~~left < right、[left, right)に解が含まれている。~~
+閉区間 [left, right] にdays以内に運ぶことが出来る最小のキャパシティが含まれる
 
 5.探索ロジックの設計
 leftとrightの真ん中をmiddleと置く。
