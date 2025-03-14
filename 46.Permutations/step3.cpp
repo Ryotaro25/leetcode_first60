@@ -9,8 +9,8 @@ class Solution {
 
   private:
     void GeneratePermutation(vector<vector<int>>& permutations,
-                                   vector<int>& partial_permutations,
-                                   const vector<int>& nums) {
+                             vector<int>& partial_permutations,
+                             const vector<int>& nums) {
       if (partial_permutations.size() == nums.size()) {
         permutations.push_back(partial_permutations);
         return;
