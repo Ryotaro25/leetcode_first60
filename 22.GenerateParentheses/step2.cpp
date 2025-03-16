@@ -9,8 +9,8 @@ class Solution {
 
   private:
     void GenerateParen(int num_parens, int num_open, int num_close,
-                                         string& paren,
-                                         vector<string>& all_parens) {
+                       string& paren,
+                       vector<string>& all_parens) {
       if (num_open + num_close == num_parens * 2) {
         all_parens.push_back(paren);
         return;
