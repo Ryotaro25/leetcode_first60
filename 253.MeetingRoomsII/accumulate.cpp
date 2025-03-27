@@ -8,10 +8,12 @@ public:
     vector<pair<int, string>> time_with_labels;
 
     for (const auto& interval : intervals) {
-      time_with_labels.emplace_back(interval[0], "start");
-      time_with_labels.emplace_back(interval[1], "end");
+      time_with_labels.emplace_back(interval[0], "start"); // 会議開始
+      time_with_labels.emplace_back(interval[1], "end"); // 会議終了
     }
 
+    // 時刻が同じ場合はendがstartり前に来る
+    // endがstartり辞書順で後にあるため
     sort(time_with_labels.begin(), time_with_labels.end());
     // 外部関数 `updateRoomCounter` を使用して最終的な会議室数を計算
     RoomCounter result = accumulate(time_with_labels.begin(), time_with_labels.end(),
