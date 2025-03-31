@@ -41,7 +41,7 @@ https://en.cppreference.com/w/cpp/algorithm/next_permutation
   pivot以降を逆順に並び変える箇所について
   元々pivot以降は降順に並んでいるので、reverseを使い結果として昇順に並び替えているが
   sortを使った方がわかりやすいような気がする
-  o(n)からO(n log n)になるが、昇順に並び替えているというのは伝わりそう
+  O(n)からO(n log n)になるが、昇順に並び替えているというのは伝わりそう
 
 next_permutation関数を使うのは、求めらていないだろう
 
