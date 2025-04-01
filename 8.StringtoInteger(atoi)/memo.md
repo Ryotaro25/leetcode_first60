@@ -54,9 +54,10 @@ https://github.com/philip82148/leetcode-arai60/pull/6/commits/4e7c21a9e3cb96327e
 https://github.com/Yoshiki-Iwasa/Arai60/pull/64/commits/857ed449085ebae4c21cd475d45b541d6d43ccac
 
 ・処理ごとに関数に分けるのも一つの手段か
-・isdigit()を使わないのかなと思ったら理由が書かれていた
+・Pythonのisdigit()を使わないのかなと思ったら理由が書かれていた
 　>[0-9]以外もTrueにするやつがいくつかあったと思うので使うのを止めておい
 　なるほどです
+　C++では、ロケールの影響は受ける可能性がある
 ・joinして最後に変換する方法もある
 　c++だと変換した瞬間にオーバーフローしそう
 https://github.com/fhiyo/leetcode/pull/57/commits/981cf81c9c82ed22dcc53f6d17e8a2364b32bc92
