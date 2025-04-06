@@ -54,6 +54,12 @@ step2.cppのvector<vector<char>>からvector<string>へ
   reserveを使って予め必要なメモリを確保しておけば先確保を減らすことができる。
   https://stackoverflow.com/questions/611263/efficient-string-concatenation-in-c
 
+  今回stringの最長は1000文字。numRowsが1000の場合、一文字ずつ繋げる必要がある。
+  下記の記事によると、環境にもよるがだいたい初期は32文字まで確保されている。
+  https://stackoverflow.com/questions/53216377/how-much-memory-is-allocated-to-an-uninitialized-stdstring-variable
+  1000 / 32 ≒ 31なので、31回リアロケーションが発生する。
+  あらかじめreserveで確保しておくと、1度ですむ。
+
 step2_2.cpp
 step2_1.cppで使っていたbool is_downforwardをint directionに置き換え
 fhiyoの回答を参考
