@@ -57,8 +57,30 @@ step2.cppのvector<vector<char>>からvector<string>へ
   今回stringの最長は1000文字。numRowsが1000の場合、一文字ずつ繋げる必要がある。
   下記の記事によると、環境にもよるがだいたい初期は32文字まで確保されている。
   https://stackoverflow.com/questions/53216377/how-much-memory-is-allocated-to-an-uninitialized-stdstring-variable
-  1000 / 32 ≒ 31なので、31回リアロケーションが発生する。
+  ~~1000 / 32 ≒ 31なので、31回リアロケーションが発生する。~~
+  →これは誤り。領域は確保のたびに倍のサイズになるので、6回発生
   あらかじめreserveで確保しておくと、1度ですむ。
+
+  Mac OS上でテスト
+  sは1000文字にしてリアロケーションがどのように発生するのか確認
+  capcityの変化 : 22 47 95 191 383 767 1535
+
+  #include <chrono>を用いて実行速度を計測する。
+  https://www.rk-k.com/archives/6973
+  ・sは1000文字、numRows = 1000
+    reserve無し
+    処理時間: 0.000161757 秒
+    reserveあり
+    処理時間: 0.000206844 秒
+
+  ・sは1000文字、numRows = 1000
+    reserve無し
+    処理時間: 3.6マイクロ 秒
+    reserveあり
+    処理時間: 3.6マイクロ 秒
+
+  reserveを使うことで、リアロケーションは発生しなくなったが
+  1000文字では、実行速度に差が見られなかった。
 
 step2_2.cpp
 step2_1.cppで使っていたbool is_downforwardをint directionに置き換え
