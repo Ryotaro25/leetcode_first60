@@ -8,12 +8,12 @@ class Solution {
       for (const string& str : strs) {
         string sorted = str;
         sort(sorted.begin(), sorted.end());
-        anagram_to_groups[sorted].emplace_back(str);
+        anagram_to_groups[sorted].push_back(move(str));
       }
 
       vector<vector<string>> grouped_anagrams;
-      for (const auto& [key, group] : anagram_to_groups) {
-        grouped_anagrams.emplace_back(group);
+      for (const auto& [anagram, group] : anagram_to_groups) {
+        grouped_anagrams.push_back(move(group));
       }
       return grouped_anagrams;
     }
