@@ -40,3 +40,18 @@ indexの管理方法を考えることで左側の積と右側の積を一度に
 https://discord.com/channels/1084280443945353267/1200089668901937312/1200403156073455646
 ## Discorなど
 
+# PRに対するコメント
+partial_sumとtransformを使っても解答可能
+=>いずれの関数も知らなかったので普段使っている物以外にも足を伸ばす姿勢を意識。
+
+partial_sum
+https://cpprefjp.github.io/reference/numeric/partial_sum.html
+https://en.cppreference.com/w/cpp/algorithm/partial_sum
+
+multiplies
+https://cpprefjp.github.io/reference/functional/multiplies.html
+https://en.cppreference.com/w/cpp/utility/functional/multiplies
+
+transform
+https://cpprefjp.github.io/reference/algorithm/transform.html
+https://en.cppreference.com/w/cpp/algorithm/transform
