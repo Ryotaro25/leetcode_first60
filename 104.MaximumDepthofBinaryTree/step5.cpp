@@ -11,10 +11,18 @@
  */
 class Solution {
 public:
-  int maxDepth(TreeNode* node) {
+  int maxDepth(TreeNode* root) {
+    if (!root) {
+      return 0;
+    }
+    return FindMaxDepth(root);
+  }
+
+private:
+  int FindMaxDepth(TreeNode* node) {
     if (!node) {
       return 0;
     }
-    return max(maxDepth(node->left), maxDepth(node->right)) + 1;
+    return max(FindMaxDepth(node->left), FindMaxDepth(node->right)) + 1;
   }
 };
