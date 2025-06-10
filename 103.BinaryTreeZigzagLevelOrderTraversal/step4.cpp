@@ -22,9 +22,9 @@ public:
     while (!processing_nodes.empty()) {
       int node_size = processing_nodes.size();
       vector<int> same_level_nums;
-      for (int i = 0; i < processing_nodes; i++) {
+      for (int i = 0; i < node_size; i++) {
         TreeNode* node = processing_nodes.front();
-        same_level_nums.pop();
+        processing_nodes.pop();
         same_level_nums.push_back(node->val);
         if (node->left) {
           processing_nodes.push(node->left);
@@ -34,7 +34,7 @@ public:
         }
       }
       if (!is_left_to_right) {
-        sort(same_level_nums.rbegin(), same_level_nums.rend());
+        reverse(same_level_nums.begin(), same_level_nums.end());
       }
       zigzag_level_orderd.push_back(std::move(same_level_nums));
       is_left_to_right = !is_left_to_right;
