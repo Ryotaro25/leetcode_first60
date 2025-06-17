@@ -63,4 +63,7 @@ Pythonだとこの書き方できそうだけど、C++ではサポートされ�
 https://github.com/rihib/leetcode/pull/26/commits/2ef461f9770746f0279814fe302af1fe8ef0b35a
 
 ## Discorなど
+>細かいですが、std は standard library で C++ 誕生とともにあったのに対して、STL は standard template library という std の一部で、SGI (シリコングラフィックス)という会社が作っていたライブラリーが一部取り込まれたものです。
+知らんかった。
+https://github.com/irohafternoon/LeetCode/pull/8
 
